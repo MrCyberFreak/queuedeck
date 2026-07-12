@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body { margin: 0; padding: 0; width: 1024px; height: 1024px; overflow: hidden; }
+  .tile {
+    width: 1024px; height: 1024px;
+    background:
+      radial-gradient(760px 560px at 30% 18%, #23324b 0%, transparent 62%),
+      linear-gradient(155deg, #182337 0%, #0e1520 58%, #0a0f17 100%);
+    display: grid; place-items: center;
+    border-radius: 0; /* platform masks handle rounding; keep square canvas */
+  }
+  .bars { display: flex; flex-direction: column; gap: 74px; }
+  .bar { height: 74px; border-radius: 37px; }
+  .bar.b1 { width: 420px; background: #4a5d7e; }
+  .bar.b2 {
+    width: 588px; background: linear-gradient(90deg, #f0a422, #ffb733);
+    box-shadow: 0 0 90px rgba(240, 164, 34, 0.45);
+    position: relative;
+  }
+  .bar.b2::after {
+    /* the "publish" dot leaving the queue */
+    content: ""; position: absolute; right: -118px; top: 50%;
+    transform: translateY(-50%);
+    width: 74px; height: 74px; border-radius: 50%;
+    background: #ffb733; opacity: .9;
+  }
+  .bar.b3 { width: 420px; background: #4a5d7e; opacity: .72; }
+  .bar.b4 { width: 300px; background: #4a5d7e; opacity: .45; }
+</style>
+</head>
+<body>
+  <div class="tile">
+    <div class="bars">
+      <div class="bar b1"></div>
+      <div class="bar b2"></div>
+      <div class="bar b3"></div>
+      <div class="bar b4"></div>
+    </div>
+  </div>
+</body>
+</html>
